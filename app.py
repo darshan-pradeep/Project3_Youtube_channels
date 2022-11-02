@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,send_from_directory
+from flask import Flask,render_template,request,send_from_directory,send_file
 import os
 from utils import snowflakes
 from helpers import video_authors_list
@@ -68,8 +68,9 @@ def comments():
 @app.route('/download',methods=['POST'])
 def download():
     title=request.form.get('download_title')
-    s3_downloader.s3_connector(title+'.3gpp')
-    return render_template('download_completed.html')
+    a=s3_downloader.s3_connector(title+'.3gpp')
+    return send_file(a,as_attachment=True)
+    # return render_template('download_completed.html')
     
 
     
