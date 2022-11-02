@@ -1,0 +1,53 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Homepage
+{% endblock title %}
+
+{% block body %}
+<div class="container my-5" style="text-align:center ;">
+    <h1>Welcome to Homepage</h1>
+</div>
+
+<div class="container" style="text-align:center">
+    <div class="card-group">
+        <div class="card mx-2 border-dark">
+            <img src={{authors[0][1]}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{authors[0][0]}}</h5>
+                <form method="post" action="/krishtop3">
+                    <button type="submit" class="btn btn-outline-primary" name="check_name" value={{authors[0][1]}}>Click here</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mx-2 border-dark">
+            <img src={{authors[1][1]}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{authors[1][0]}}</h5>
+                <form method="post" action="/mysirgtop3"><button type="submit" class="btn btn-outline-success">Click here</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mx-2 border-dark">
+            <img src={{authors[2][1]}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{authors[2][0]}}</h5>
+                <form method="post" action="/hiteshtop3"><button type="submit" class="btn btn-outline-danger">Click here</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mx-2 border-dark">
+            <img src={{authors[3][1]}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{authors[3][0]}}</h5>
+                <form method="post" action="/teluskotop3"><button type="submit" class="btn btn-outline-dark">Click here</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+{% endblock body %}
