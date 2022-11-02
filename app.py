@@ -1,5 +1,5 @@
-from flask import Flask,render_template,request
-
+from flask import Flask,render_template,request,send_from_directory
+import os
 from utils import snowflakes
 from helpers import video_authors_list
 from utils import top50details
@@ -12,7 +12,12 @@ app=Flask(__name__)
 ctx,cs=snowflakes.main()
 authors_list=video_authors_list.read_snowflakes(cs)
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path,'static'),'favicon.ico',mimetype='images/favicon.png')
 
+
+@app.route('/')
 @app.route('/homepage')
 def homepage():
     return render_template ('homepage.html',authors=authors_list)
